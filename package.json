@@ -1,0 +1,29 @@
+{
+  "name": "txcop",
+  "version": "0.0.1",
+  "description": "Makes sure your web3 transactions are safe",
+  "main": "index.js",
+  "author": "James Brotchie <brotchie@gmail.com>",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "watch": "webpack --watch",
+    "build": "webpack"
+  },
+  "dependencies": {
+    "events": "^3.3.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  },
+  "devDependencies": {
+    "@types/chrome": "^0.0.179",
+    "@types/react": "^17.0.39",
+    "@types/react-dom": "^17.0.11",
+    "copy-webpack-plugin": "^10.2.4",
+    "html-webpack-plugin": "^5.5.0",
+    "ts-loader": "^9.2.6",
+    "typescript": "^4.5.5",
+    "webpack": "^5.69.1",
+    "webpack-cli": "^4.9.2"
+  }
+}
