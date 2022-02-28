@@ -25,6 +25,19 @@ const options = {
         use: 'ts-loader',
         exclude: /node_modules/,
       },
+      {
+        // look for .css or .scss files
+        test: /\.(css|scss)$/,
+        // in the `src` directory
+        use: [
+          {
+            loader: 'style-loader',
+          },
+          {
+            loader: 'css-loader',
+          },
+        ],
+      },
     ],
   },
   resolve: {
