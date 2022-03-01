@@ -1,3 +1,7 @@
+import { ContentScriptBackgroundRelay } from '../messaging';
+
+const relay = new ContentScriptBackgroundRelay();
+
 function injectInpageScript() {
   const container = document.head || document.documentElement;
   const scriptTag = document.createElement('script');

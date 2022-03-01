@@ -1,5 +1,16 @@
 import { NotificationManager } from '../notification-manager';
 
+import {
+  InpageListener,
+  WalletMethodCall,
+  PreflightAction,
+} from '../messaging';
+
+const listener = new InpageListener();
+listener.setPreflightResultHandler(async (call: WalletMethodCall) => {
+  return { action: PreflightAction.BLOCK };
+});
+
 const manager = new NotificationManager();
 
 manager.on('popup-closed', () => {
