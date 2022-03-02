@@ -8,7 +8,7 @@ import {
 
 const listener = new InpageListener();
 listener.setPreflightResultHandler(async (call: WalletMethodCall) => {
-  return { action: PreflightAction.BLOCK };
+  return { action: PreflightAction.PASSTHROUGH };
 });
 
 const manager = new NotificationManager();

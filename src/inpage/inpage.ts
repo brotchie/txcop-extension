@@ -1,9 +1,17 @@
-import { BackgroundProxy } from '../messaging';
+import { BackgroundProxy, PreflightAction} from '../messaging';
+import { EthereumMonkeypatcher } from './monkeypatch';
 
 const proxy = new BackgroundProxy();
+const patcher = new EthereumMonkeypatcher();
 
-setTimeout(() => {
-  proxy
-    .preflightMethodCall({ method: 'eth_sign', params: [1, 2, 3, 4] })
-    .then(console.log);
-}, 1000);
+(async function() {
+    const result = await patcher.monkeypatch();
+    if (!result) {
+        throw new Error("Failed to monkeypatch");
+    }
+
+    patcher.setRequestHandler(async (args) => {
+        const result = await proxy.preflightMethodCall(args);
+        return result.action === PreflightAction.PASSTHROUGH;
+    });
+})();

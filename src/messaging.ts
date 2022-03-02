@@ -9,7 +9,7 @@
 /** A method call from Javascript to wallet provider. */
 export type WalletMethodCall = {
   method: string;
-  params: any[];
+  params?: object | unknown[];
 };
 
 /** The action taken as a result of preflight checking a method call. */
